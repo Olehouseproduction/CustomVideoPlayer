@@ -1,13 +1,81 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Custom video player</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header class="header container">
+        <div class="authorization">
+          <div class="user"></div>
+        </div>
+      </header>
+      <div class="inner container">
+        <aside class="navigation">
+          <div class="field-navigation">
+            <input type="text" name="title-video" id="title-video" placeholder="Название видео" />
+            <button class="edit-button" aria-label="Edit Video">
+              <img src="/img/edit.svg" alt="Edit" />
+            </button>
+          </div>
+          <div class="list">
+            <p class="title-list">Список видео</p>
+            <!-- Здесь будет список видео -->
+          </div>
+          <button class="add-button">Добавить видео</button>
+        </aside>
+        <div class="video-container">
+          <video controls>
+            <source src="video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- Модальное окно - Добавить видео -->
+      <div class="modal add-video">
+        <h3 class="modal-title">Добавить видео</h3>
+        <div class="fields-container">
+          <div class="field">
+            <label for="title">Название</label>
+            <input type="text" name="title" id="title" />
+          </div>
+          <div class="field">
+            <label for="link">Ссылка</label>
+            <input type="text" name="link" id="link" />
+          </div>
+          <div class="field">
+            <label for="description">Описание</label>
+            <input type="text" name="description" id="description" />
+          </div>
+        </div>
+        <button class="modal-button">Добавить</button>
+      </div>
+
+      <!-- Модальное окно - Редактировать видео -->
+      <div class="modal edit-video">
+        <h3 class="modal-title">Редактировать видео</h3>
+        <div class="fields-container">
+          <div class="field">
+            <label for="edit-title">Название</label>
+            <input type="text" name="edit-title" id="edit-title" />
+          </div>
+          <div class="field">
+            <label for="edit-link">Ссылка</label>
+            <input type="text" name="edit-link" id="edit-link" />
+          </div>
+          <div class="field">
+            <label for="edit-description">Описание</label>
+            <input type="text" name="edit-description" id="edit-description" />
+          </div>
+        </div>
+        <button class="modal-button">Сохранить изменения</button>
+        <button class="modal-button delete-button">Удалить видео</button>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
