@@ -63,9 +63,6 @@ class VideoStorage {
     // return v.id === videoId; - Эта строка проверяет, равен ли id текущего видео (v.id) переданному аргументу videoId.
     // Если v.id равно videoId, функция возвращает true, и findIndex останавливается на этом элементе, возвращая его индекс.
     // Если v.id не равно videoId, функция возвращает false, и findIndex продолжает проверять следующие элементы массива.
-
-    // console.log("remove video: ", videoId);
-    //Передаем id и по нему удаляем видео..
   }
 
   sortVideos(type) {
@@ -93,9 +90,6 @@ class VideoStorage {
       console.log("Видео отсортированы по убыванию имени");
       console.log(this.videos);
     }
-
-    //Три type: по убыванию и по возрастанию длины, имя. На основе этого мы сортируем. Должен меняться порядок массива. Метод sort.
-    //
   }
 
   filterVideos(type) {
@@ -109,8 +103,6 @@ class VideoStorage {
       console.warn("Некорректный тип фильтрации");
       return [];
     }
-
-    //По длине: больше 30 минут, и меньше. Мы должны возвращать новый массив по фильтру.
   }
 }
 
@@ -131,6 +123,11 @@ class User {
     this.#password = password;
   }
 }
+
+// class DataBase {
+//   User();
+
+// }
 
 // Создаём экземпляр класса User
 const user_1 = new User(25, "olo", "olo", "l", 123);
