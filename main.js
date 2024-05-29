@@ -67,42 +67,74 @@ class VideoStorage {
 
   sortVideos(type) {
     //Сортировка по возрастанию длины видео
-    if (type === "lenghtAscending") {
-      this.videos.sort((a, b) => a.length - b.length);
-      console.log("Видео отсортированы по возрастанию длины");
-      console.log(this.videos);
+    let sortVideos = [];
+    switch (type) {
+      case "lenghtAscending":
+        this.videos.sort((a, b) => a.length - b.length);
+        console.log("Видео отсортированы по возрастанию длины");
+        console.log(this.videos);
+        break;
+      case "lengthDescending":
+        this.videos.sort((a, b) => b.length - a.length);
+        console.log("Видео отсортированы по убыванию длины");
+        console.log(this.videos);
+        break;
+      case "nameAscending":
+        this.videos.sort((a, b) => a.title.localeCompare(b.title));
+        console.log("Видео отсортированы по возрастанию имени");
+        console.log(this.videos);
+        break;
+      case "nameDescending":
+        this.videos.sort((a, b) => b.title.localeCompare(a.title));
+        console.log("Видео отсортированы по убыванию имени");
+        console.log(this.videos);
+        break;
+      default:
+        console.warn("Некорректный тип сортировки");
+        break;
     }
-    //Сортировка по убыванию длины видео
-    else if (type === "lengthDescending") {
-      this.videos.sort((a, b) => b.length - a.length);
-      console.log("Видео отсортированы по убыванию длины");
-      console.log(this.videos);
-    }
-    //Сортировка по возрастанию имени видео
-    else if (type === "nameAscending") {
-      this.videos.sort((a, b) => a.title.localeCompare(b.title));
-      console.log("Видео отсортированы по возрастанию имени");
-      console.log(this.videos);
-    }
-    //Сортировка по убыванию имени видео
-    else if (type === "nameDescending") {
-      this.videos.sort((a, b) => b.title.localeCompare(a.title));
-      console.log("Видео отсортированы по убыванию имени");
-      console.log(this.videos);
-    }
+    return sortVideos;
+    // if (type === "lenghtAscending") {
+    //   this.videos.sort((a, b) => a.length - b.length);
+    //   console.log("Видео отсортированы по возрастанию длины");
+    //   console.log(this.videos);
+    // }
+    // //Сортировка по убыванию длины видео
+    // else if (type === "lengthDescending") {
+    //   this.videos.sort((a, b) => b.length - a.length);
+    //   console.log("Видео отсортированы по убыванию длины");
+    //   console.log(this.videos);
+    // }
+    // //Сортировка по возрастанию имени видео
+    // else if (type === "nameAscending") {
+    //   this.videos.sort((a, b) => a.title.localeCompare(b.title));
+    //   console.log("Видео отсортированы по возрастанию имени");
+    //   console.log(this.videos);
+    // }
+    // //Сортировка по убыванию имени видео
+    // else if (type === "nameDescending") {
+    //   this.videos.sort((a, b) => b.title.localeCompare(a.title));
+    //   console.log("Видео отсортированы по убыванию имени");
+    //   console.log(this.videos);
+    // }
   }
 
   filterVideos(type) {
-    if (type === "over30") {
-      console.log("Видео отфильтрованы (длительность больше 30 минут)");
-      return this.videos.filter((a) => a.length >= 1800);
-    } else if (type === "under30") {
-      console.log("Видео отфильтрованы (длительность меньше 30 минут)");
-      return this.videos.filter((a) => a.length <= 1800);
-    } else {
-      console.warn("Некорректный тип фильтрации");
-      return [];
+    let filterVideos = [];
+    switch (type) {
+      case "over30":
+        console.log("Видео отфильтрованы (длительность больше 30 минут)");
+        filterVideos = this.videos.filter((a) => a.length >= 1800);
+        break;
+      case "under30":
+        console.log("Видео отфильтрованы (длительность меньше 30 минут)");
+        filterVideos = this.videos.filter((a) => a.length <= 1800);
+        break;
+      default:
+        console.warn("Некорректный тип фильтрации");
+        break;
     }
+    return filterVideos;
   }
 }
 
