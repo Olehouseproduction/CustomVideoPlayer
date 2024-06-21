@@ -39,6 +39,7 @@ const dataBase = new DataBase();
 
 // let shortRatioType = shorts1.checkRatio(400, 800);
 // console.log(shortRatioType, shorts1.ratio);
+
 // Добавление пользователя в базу данных
 dataBase.setDataToBase("user", user_1);
 console.log("user добавлен");
