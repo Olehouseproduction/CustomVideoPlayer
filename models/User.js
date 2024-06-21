@@ -10,22 +10,54 @@ export default class User {
   #email;
   firstName;
   username;
+  
+  /**
+   * @param {Number} id - Идентификатор пользователя (Стринга или намбер)
+   */
+  constructor(id) {
+    this.#id = id;
+    // this.username = username;
+    // this.firstName = firstName;
+    // this.#email = email;
+    // this.#password = password;
+  }
 
   /**
-   *
-   * @param {Number} id - Идентификатор пользователя (Стринга или намбер)
-   * @param {String} username - Имя (логин)
-   * @param {String} firstName - Имя
-   * @param {String} email - Адрес электронной почты
-   * @param {String} password - Пароль
+   * Передаем публичную информацию
+   * @param {String} firstName имя user
+   * @param {String} username никнейм user
    */
+  setPublicInformation(firstName,
+    username) {
+      this.firstName = firstName;
+      this.username = username
+  }
+  /**
+   * Передаем приватную информацию
+   * @param {String} password пароль user
+   * @param {String} email email user
+   */
+  setPrivateInformation(password, email) {
+    this.#password = password
+    this.#email = email
+  }
 
-  constructor(id, username, firstName, email, password) {
-    this.#id = id;
-    this.username = username;
-    this.firstName = firstName;
-    this.#email = email;
-    this.#password = password;
+  setInformationToDataBase() {
+    const info = {
+      id: this.#id,
+      type: this.#type,
+      password: this.#password,
+      email: this.#email,
+      firstName: this.firstName,
+      username: this.username
+    }
+    // TODO 
+    // 1) запарсить info в JSON, 
+    // 2) найти по id в JSON нужное поле 
+    // 3) перезаписать поле с таким же ID.
+
+
+    return info
   }
 }
 
