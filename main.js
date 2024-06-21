@@ -2,15 +2,23 @@ import "./style.css";
 import DataBase from "./models/DataBase.js";
 import User from "./models/User.js";
 import Video from "./models/Video.js";
-import VideoStorage from "./models/VideoStorage.js";
+// import VideoStorage from "./models/VideoStorage.js";
 import { globalUserId } from "./models/utils.js";
-import { Film } from "./models/Video.js";
-import { Shorts } from "./models/Video.js";
+// import { Film } from "./models/Video.js";
+// import { Shorts } from "./models/Video.js";
 // import { x as a } from "./models/DataBase.js";
 // const b = data.x;
 
+
+// TODO
+// Задание по методам JSON.stringify() и JSON.parse()
+// достать все id из JSON запихнуть в один массив [],
+// циклом forEach создать экземпляры класса User,
+//  в том же цикле применить методы класса для заполнения остальных полей
+// в том же цикле запустить метод по записыванию полей в JSON 
+
 // Создаём экземпляры классов
-const user_1 = new User(25, "Arman.web.dev", "Arman", "my-mail@gmail.com", "12z3");
+const user_1 = new User(25);
 const video_1 = new Video(1, "Title", "http://link", "Description");
 const video_2 = new Video(2, "JavaScript Basics", "http://link", "Description", 3600);
 const video_3 = new Video(3, "HTML Essentials", "http://link", "Description", 1800);
