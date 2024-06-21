@@ -14,3 +14,5 @@ export default class User {
     this.#password = password;
   }
 }
+
+// Добавить админа. Методы. Приватное поле passwordToDataBase
