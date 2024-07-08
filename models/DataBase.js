@@ -1,8 +1,21 @@
 import { sendDataToEmptySlot } from "./utils";
+import json from "../database/users.json";
 
 /**
  * База данных должна быть защищена. Декларируем переменные как приватные.
  */
+
+// TODO
+// Задание по методам JSON.stringify() и JSON.parse()
+// 1) достать все id из JSON запихнуть в один массив [],
+// 2) циклом forEach создать экземпляры класса User,
+// 3) в том же цикле применить методы класса для заполнения остальных полей
+
+// 1) создать метод createDataFromBase,
+// 2) импорт json. парсинг json в объект с пом.parse JSON.parse()
+// 3) достать все id из JSON запихнуть в один массив [],
+// 4) Циклом forEach берет id из массива и использует его как ключ к map, а все остальные поля json он использует как поля класса.
+// 5) С пом. метода set передаем в map данные в виде (если userbase - то userbase.set (id,new User(...поля для юзера)).
 
 export default class DataBase {
   #userBase;
@@ -58,6 +71,16 @@ export default class DataBase {
         break;
     }
     return base;
+  }
+
+  //Создаю новый метод:
+  createDataFromBase() {
+    const dataFromJSON = JSON.parse(json); // Парсинг JSON
+    // const dataFromJSON = json;
+    dataFromJSON.forEach((data) => {
+      const user = new User(data.id, data.firstName, data.password, data.username, data.email);
+      this.#userBase.set(data.id, user); // Добавить в Map
+    });
   }
 }
 

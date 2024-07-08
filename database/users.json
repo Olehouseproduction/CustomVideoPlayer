@@ -1,19 +1,26 @@
 [
-    {
-        "id": "1",
-        "type": "user", 
-        "firstName": "",
-        "password": "",
-        "username": "",
-        "email": ""
-    },
-    {
-
-    },
-    {
-
-    },
-    {
-
-    }
-]   
+  {
+    "id": "1",
+    "type": "user",
+    "firstName": "",
+    "password": "",
+    "username": "",
+    "email": ""
+  },
+  {
+    "id": "2",
+    "type": "user",
+    "firstName": "",
+    "password": "",
+    "username": "",
+    "email": ""
+  },
+  {
+    "id": "3",
+    "type": "user",
+    "firstName": "",
+    "password": "",
+    "username": "",
+    "email": ""
+  }
+]

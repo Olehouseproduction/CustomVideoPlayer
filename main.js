@@ -4,21 +4,20 @@ import User from "./models/User.js";
 import Video from "./models/Video.js";
 // import VideoStorage from "./models/VideoStorage.js";
 import { globalUserId } from "./models/utils.js";
+import id from "./database/users.json";
+
 // import { Film } from "./models/Video.js";
 // import { Shorts } from "./models/Video.js";
 // import { x as a } from "./models/DataBase.js";
 // const b = data.x;
 
-
-// TODO
-// Задание по методам JSON.stringify() и JSON.parse()
-// достать все id из JSON запихнуть в один массив [],
-// циклом forEach создать экземпляры класса User,
-//  в том же цикле применить методы класса для заполнения остальных полей
-// в том же цикле запустить метод по записыванию полей в JSON 
-
 // Создаём экземпляры классов
-const user_1 = new User(25);
+
+// Создала трех пользователей
+// const user_1 = new User(id[0]["id"]);
+// const user_2 = new User(id[1]["id"]);
+// const user_3 = new User(id[2]["id"]);
+
 const video_1 = new Video(1, "Title", "http://link", "Description");
 const video_2 = new Video(2, "JavaScript Basics", "http://link", "Description", 3600);
 const video_3 = new Video(3, "HTML Essentials", "http://link", "Description", 1800);
@@ -38,6 +37,9 @@ console.log(video_4);
 // const videoStorage_3 = new VideoStorage(user_1);
 // const videoStorage_4 = new VideoStorage(user_1);
 const dataBase = new DataBase();
+// Создаю данные из JSON
+dataBase.createDataFromBase();
+
 // const film1 = new Film(4, "CSS Fundamentals", "http://link", "Description", 900, 5);
 // console.log(film1);
 
@@ -49,8 +51,12 @@ const dataBase = new DataBase();
 // console.log(shortRatioType, shorts1.ratio);
 
 // Добавление пользователя в базу данных
-dataBase.setDataToBase("user", user_1);
-console.log("user добавлен");
+// dataBase.setDataToBase("user", user_1);
+// console.log("user добавлен");
+// dataBase.setDataToBase("user", user_2);
+// console.log("user добавлен");
+// dataBase.setDataToBase("user", user_3);
+// console.log("user добавлен");
 
 // Проверка добавленного пользователя
 const user = dataBase.getDataByTypeAndId("user", globalUserId);

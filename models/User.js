@@ -2,7 +2,7 @@
  * Класс User представляет собой модель пользователя.
  * Содержит приватные и публичные поля для идентификации, безопасности и базовой информации о пользователе
  */
-
+import json from "../database/users.json";
 export default class User {
   #type = "user";
   #password;
@@ -10,16 +10,12 @@ export default class User {
   #email;
   firstName;
   username;
-  
+
   /**
-   * @param {Number} id - Идентификатор пользователя (Стринга или намбер)
+   * @param {Number} id
    */
   constructor(id) {
     this.#id = id;
-    // this.username = username;
-    // this.firstName = firstName;
-    // this.#email = email;
-    // this.#password = password;
   }
 
   /**
@@ -27,10 +23,9 @@ export default class User {
    * @param {String} firstName имя user
    * @param {String} username никнейм user
    */
-  setPublicInformation(firstName,
-    username) {
-      this.firstName = firstName;
-      this.username = username
+  setPublicInformation(firstName, username) {
+    this.firstName = firstName;
+    this.username = username;
   }
   /**
    * Передаем приватную информацию
@@ -38,8 +33,8 @@ export default class User {
    * @param {String} email email user
    */
   setPrivateInformation(password, email) {
-    this.#password = password
-    this.#email = email
+    this.#password = password;
+    this.#email = email;
   }
 
   setInformationToDataBase() {
@@ -49,19 +44,21 @@ export default class User {
       password: this.#password,
       email: this.#email,
       firstName: this.firstName,
-      username: this.username
-    }
-    // TODO 
-    // 1) запарсить info в JSON, 
-    // 2) найти по id в JSON нужное поле 
+      username: this.username,
+    };
+    // TODO
+    // 1) запарсить info в JSON,
+    // 2) найти по id в JSON нужное поле
     // 3) перезаписать поле с таким же ID.
 
-
-    return info
+    // return info;
+    // 1) запарсить info в JSON,
+    let json_info = JSON.stringify(info);
+    console.log("json_info: ", json_info);
+    // 2) найти по id в JSON нужное поле
+    // console.log(json.id);
   }
 }
-
-// Добавить админа. Методы. Приватное поле passwordToDataBase
 
 /**
  * Класс Admin представляет собой модель пользователя, наследуемую от класса User.
@@ -73,15 +70,11 @@ export class Admin extends User {
   /**
    * Создает новый экземпляр администратора.
    * @param {Number} id - Идентификатор админа
-   * @param {String} username - Имя (логин)
-   * @param {String} firstName - Имя
-   * @param {String} email - Адрес электронной почты
-   * @param {String} password - Пароль
-   * @param {String} passwordToDataBase - Пароль от БД
+
    */
-  constructor(id, username, firstName, email, password, passwordToDataBase) {
-    super(id, username, firstName, email, password);
-    this.#passwordToDataBase = passwordToDataBase;
+  constructor(id) {
+    super(id);
+    // this.#passwordToDataBase = passwordToDataBase;
   }
   /**
    * Метод для админа: блокировка пользователя
